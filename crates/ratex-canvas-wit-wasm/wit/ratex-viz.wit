@@ -1,0 +1,23 @@
+package ratex:viz@1.0.0;
+
+interface math-renderer {
+    use echodawn:canvas/draw@2.0.0.{layer};
+
+    /// 渲染结果（尺寸后验：width/height = intrinsic，逻辑像素）
+    record render-result { layers: list<layer>, width: f64, height: f64 }
+
+    /// 主题注入（唯一色彩通道；宿主 token 派生）
+    record math-theme { foreground: string, font-size: f64 }
+
+    resource math {
+        constructor(source: string, opts: option<math-theme>);
+        update-source: func(source: string) -> result<_, string>;
+        resize: func(width: f64);
+        set-theme: func(theme: math-theme);
+        render: func(t: f64) -> result<render-result, string>;
+    }
+}
+
+world ratex-canvas-viz {
+    export math-renderer;
+}

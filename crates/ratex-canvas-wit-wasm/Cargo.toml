@@ -1,0 +1,15 @@
+[package]
+name = "ratex-canvas-wit-wasm"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "WASI Component (wasm32-wasip2) exporting the ratex-canvas-viz world"
+
+[dependencies]
+ratex-canvas = { path = "../ratex-canvas" }
+wit-bindgen = "0.57"
+
+[lib]
+crate-type = ["cdylib"]
