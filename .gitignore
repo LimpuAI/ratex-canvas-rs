@@ -1,3 +1,6 @@
 /target
 Cargo.lock.bak
 *.wasm
+
+# component-pack 产包落点（build/manifest/pkg 产物）
+/dist

@@ -1,0 +1,23 @@
+# aixpack（LimpuAI/aixpack）打包描述；
+# 格式契约：LimpuAI/aixpack docs/plugin-package.md）。
+#
+# 产包（在本仓根执行）：
+# aixpack --root <本仓> build / pkg --zip / verify（README「打包」节）
+
+[pack]
+# {org}/{repo-name}——author 非 Cargo.toml authors 直取（"linktime <fankong>"
+# 含空白非合法 id 段），按约定取 limpuai（LimpuAI org）；name 与仓库名对齐。
+id = "limpuai/ratex-canvas-rs"
+# 与 workspace.package.version 对齐（Cargo.toml [workspace.package] version）。
+version = "0.1.0"
+# 组件实现的 world（wit/ratex-viz.wit 的 package 声明）。
+world = "ratex:viz@1.0.0"
+# [plugin.ui.providers] 域键（design §4 规范形态；宿主宽容映射到 math 域：
+# "math-renderer" 末段前缀命中 ratex:viz/math-renderer@1.0.0）。
+domain_key = "math-renderer"
+summary = "KaTeX-compatible math renderer (ratex-canvas WASI component)"
+description = "Math rendering provider implementing the ratex:viz math-renderer world"
+# 参与打包的 crate（wasm32-wasip2 cdylib）。
+crates = ["crates/ratex-canvas-wit-wasm"]
+# 目标宿主面（仅进 publish index entry 展示；装载语义由段白名单决定）。
+targets = ["echodawn", "antimass"]

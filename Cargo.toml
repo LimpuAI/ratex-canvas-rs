@@ -10,4 +10,4 @@ version = "0.1.0"
 edition = "2021"
 authors = ["linktime <fankong>"]
 license = "MIT"
-repository = "https://github.com/linktime/ratex-canvas-rs"
+repository = "https://github.com/LimpuAI/ratex-canvas-rs"
