@@ -104,6 +104,7 @@ fn frame_to_bindgen(frame: ratex_canvas::Frame) -> RenderResult {
                 dirty: layer.dirty,
                 z_index: layer.z_index,
                 commands: layer.commands.into_iter().map(cmd_to_bindgen).collect(),
+                opts: None,
             })
             .collect(),
         width: frame.width,
@@ -128,6 +129,7 @@ fn cmd_to_bindgen(cmd: ratex_canvas::DrawCmd) -> echodawn::canvas::draw::DrawCmd
         group_depth: 0,
         id: None,
         anims: Vec::new(),
+        fill_gradient_along: None,
     }
 }
 
